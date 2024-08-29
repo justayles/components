@@ -1,10 +1,36 @@
-This is the main tutorial...
+This WAS the main tutorial...
+----------------------------
 
 https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe/comments
 
 But use this more recent one to get typescript/rollup configured...
+-------------------------------------------------------------------
 
 https://www.youtube.com/watch?v=FgMXpXD-4OY&t=11s
 https://nickderaj.com/youtube/react-ui-library
 https://github.com/nickderaj/YouTube/blob/main/UI%20Library/package.json
 
+installing/confuiguring husky
+-----------------------------
+
+https://stackoverflow.com/questions/50048717/lint-staged-not-running-on-precommit
+
+do it in this order
+
+npm i -D husky lint-staged
+npx mrm lint-staged
+
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "jest --verbose --coverage"
+    }
+  },
+  "lint-staged": {
+    "src/components/**/*.*": [
+      "pretty-quick --staged",
+      "eslint --fix",
+      "git add"
+    ]
+  },

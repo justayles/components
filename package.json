@@ -5,6 +5,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
+    "prepare": "husky && husky install",
     "lint": "eslint src/components/**/*.*",
     "lint:fix": "eslint src/components/**/*.* --fix",
     "dev": "rollup -c --watch",
@@ -12,19 +13,6 @@
     "test": "jest --watchAll --verbose --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "jest --verbose --coverage"
-    }
-  },
-  "lint-staged": {
-    "src/components/**/*.{js,jsx,ts,tsx}": [
-      "pretty-quick --staged",
-      "eslint --fix",
-      "git add"
-    ]
   },
   "author": "Justin Ayles",
   "license": "MIT",
@@ -86,5 +74,9 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/justayles"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
