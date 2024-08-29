@@ -20,13 +20,6 @@ do it in this order
 npm i -D husky lint-staged
 npx mrm@2 lint-staged
 
-
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "jest --verbose --coverage"
-    }
-  },
   "lint-staged": {
     "src/components/**/*.*": [
       "pretty-quick --staged",
