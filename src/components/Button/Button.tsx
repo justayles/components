@@ -1,7 +1,8 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import './Button.css';
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'tertiary';
   loading?: boolean;
   disabled?: boolean;
