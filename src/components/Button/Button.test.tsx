@@ -35,4 +35,84 @@ describe('Button', () => {
     //assert
     expect(fn).toHaveBeenCalledTimes(1);
   });
+
+  it('should set correct default classes if none are passed in', async () => {
+    // arrange
+    const fn = jest.fn();
+    render(<Button onClickHandler={fn}>hello</Button>);
+    const button = screen.getByRole('button');
+
+    //assert
+    expect(button).toHaveClass('btn btn-primary');
+  });
+
+  it('should set correct variant class if passed in', async () => {
+    // arrange
+    const fn = jest.fn();
+    render(
+      <Button onClickHandler={fn} variant="secondary">
+        hello
+      </Button>,
+    );
+    const button = screen.getByRole('button');
+
+    //assert
+    expect(button).toHaveClass('btn btn-secondary');
+  });
+
+  it('should set correct classname if passed in', async () => {
+    // arrange
+    const fn = jest.fn();
+    render(
+      <Button onClickHandler={fn} className="testClass">
+        hello
+      </Button>,
+    );
+    const button = screen.getByRole('button');
+
+    //assert
+    expect(button).toHaveClass('testClass');
+  });
+
+  it('should disable button if loading is true', async () => {
+    // arrange
+    const fn = jest.fn();
+    render(
+      <Button onClickHandler={fn} loading={true}>
+        hello
+      </Button>,
+    );
+    const button = screen.getByRole('button');
+
+    //assert
+    expect(button).toBeDisabled();
+  });
+
+  it('should disable button if disabled is true', async () => {
+    // arrange
+    const fn = jest.fn();
+    render(
+      <Button onClickHandler={fn} disabled={true}>
+        hello
+      </Button>,
+    );
+    const button = screen.getByRole('button');
+
+    //assert
+    expect(button).toBeDisabled();
+  });
+
+  it('should add icon if loading is true', async () => {
+    // arrange
+    const fn = jest.fn();
+    render(
+      <Button onClickHandler={fn} loading={true}>
+        hello
+      </Button>,
+    );
+    const button = screen.getByRole('button');
+
+    //assert
+    expect(button).toHaveTextContent('....');
+  });
 });

@@ -4,6 +4,7 @@ import './Button.css';
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'tertiary';
   loading?: boolean;
+  disabled?: boolean;
   className?: string;
   onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
@@ -12,12 +13,14 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 const Button = ({
   variant,
   loading,
+  disabled,
   className,
   onClickHandler,
   children,
   ...props
 }: ButtonProps) => {
-  const classNames = className ? className : `btn btn-${variant}`;
+  const defaultClassName = variant ? `btn btn-${variant}` : 'btn btn-primary';
+  const classNames = className ? className : defaultClassName;
   const [isLoading, setLoading] = useState(false);
   useEffect(() => {
     if (loading) {
@@ -28,7 +31,7 @@ const Button = ({
   return (
     <button
       className={classNames}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       onClick={onClickHandler}
       {...props}
     >
