@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import Button from './Button';
 import userEvent from '@testing-library/user-event';
 
@@ -43,7 +43,7 @@ describe('Button', () => {
     const button = screen.getByRole('button');
 
     //assert
-    expect(button).toHaveClass('btn btn-primary');
+    expect(button).toHaveClass('border hover:brightness-90');
   });
 
   it('should set correct variant class if passed in', async () => {
@@ -57,7 +57,7 @@ describe('Button', () => {
     const button = screen.getByRole('button');
 
     //assert
-    expect(button).toHaveClass('btn btn-secondary');
+    expect(button).toHaveClass('bg-secondary');
   });
 
   it('should set correct classname if passed in', async () => {
@@ -99,6 +99,6 @@ describe('Button', () => {
     const button = screen.getByRole('button');
 
     //assert
-    expect(button).toHaveTextContent('....');
+    within(button).getByTestId('spinner');
   });
 });

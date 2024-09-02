@@ -12,6 +12,7 @@ const Spinner = ({ color }: ISpinner): React.ReactNode => {
       className={`animate-spin h-4 w-4 text-white ${color}`}
       role="alert"
       aria-label="loading"
+      data-testid="spinner"
     />
   );
 };
