@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=FgMXpXD-4OY&t=11s
 https://nickderaj.com/youtube/react-ui-library
 https://github.com/nickderaj/YouTube/blob/main/UI%20Library/package.json
 
-installing/confuiguring husky
+installing/confuguring husky
 -----------------------------
 
 https://stackoverflow.com/questions/50048717/lint-staged-not-running-on-precommit
@@ -27,3 +27,13 @@ npx mrm@2 lint-staged
       "git add"
     ]
   },
+
+  Tailwind
+  --------
+
+  Any changes to config file then run this 'npm run tw:update'
+
+  Storybook
+  ---------
+
+  npm run storybook

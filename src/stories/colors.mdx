@@ -1,0 +1,23 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../../tailwind.config.js';
+export const fullConfig = resolveConfig(tailwindConfig);
+export const colors = fullConfig.theme.colors;
+
+<Meta title="App/Colors" />
+
+# Colors
+
+<ColorPalette>
+  <ColorItem title="Primary" subtitle="Brand color" colors={[colors.primary]} />
+  <ColorItem
+    title="Secondary"
+    subtitle="Brand color"
+    colors={[colors.secondary]}
+  />
+  <ColorItem title="Light" subtitle="Brand color" colors={[colors.light]} />
+  <ColorItem title="Dark" subtitle="Brand color" colors={[colors.dark]} />
+  <ColorItem title="Info" subtitle="Brand color" colors={[colors.info]} />
+  <ColorItem title="Success" subtitle="Brand color" colors={[colors.success]} />
+  <ColorItem title="Warning" subtitle="Brand color" colors={[colors.warning]} />
+</ColorPalette>

@@ -12,7 +12,8 @@
     "build": "rollup -c",
     "test": "jest --verbose --coverage",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "tw:update": "npx tailwindcss -i ./src/styles/index.css -o ./src/styles/main.css --watch"
   },
   "author": "Justin Ayles",
   "license": "MIT",
@@ -32,6 +33,7 @@
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
     "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
     "@storybook/blocks": "^8.2.9",
     "@storybook/react": "^8.2.9",
@@ -44,6 +46,7 @@
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.4",
     "babel-jest": "^29.7.0",
+    "clsx": "^2.1.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.35.0",
     "globals": "^15.9.0",
@@ -61,6 +64,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.2.9",
+    "tailwindcss": "^3.4.10",
     "ts-jest": "^29.2.5",
     "tslib": "^2.7.0",
     "typescript": "^5.5.4",
@@ -71,7 +75,9 @@
   ],
   "types": "dist/index.d.ts",
   "peerDependencies": {
-    "react": "^18.3.1"
+    "react": "^18.3.1",
+    "tailwindcss": "^3.4.10",
+    "lucide-react": "^0.438.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/justayles"
@@ -81,5 +87,8 @@
       "pretty-quick --staged",
       "eslint src/components/**/*.* --fix"
     ]
+  },
+  "dependencies": {
+    "lucide-react": "^0.438.0"
   }
 }

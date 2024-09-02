@@ -88,20 +88,6 @@ describe('Button', () => {
     expect(button).toBeDisabled();
   });
 
-  it('should disable button if disabled is true', async () => {
-    // arrange
-    const fn = jest.fn();
-    render(
-      <Button onClickHandler={fn} disabled={true}>
-        hello
-      </Button>,
-    );
-    const button = screen.getByRole('button');
-
-    //assert
-    expect(button).toBeDisabled();
-  });
-
   it('should add icon if loading is true', async () => {
     // arrange
     const fn = jest.fn();

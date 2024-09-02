@@ -1,11 +1,11 @@
-import React, { useState, useEffect, ReactNode } from 'react';
-import './Button.css';
+import React, { useState, useEffect } from 'react';
+import cslx from 'clsx';
+import { Spinner } from '../Spinner';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'tertiary';
   loading?: boolean;
-  disabled?: boolean;
   className?: string;
   onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
@@ -14,30 +14,38 @@ export interface ButtonProps
 const Button = ({
   variant,
   loading,
-  disabled,
   className,
   onClickHandler,
   children,
   ...props
 }: ButtonProps) => {
-  const defaultClassName = variant ? `btn btn-${variant}` : 'btn btn-primary';
-  const classNames = className ? className : defaultClassName;
+  const defaultClassName = cslx(
+    'border hover:brightness-90 p-2 px-4 sm:px-6 rounded w-auto flex items-center justify-between gap-2 my-6 disabled:opacity-75',
+    {
+      'bg-primary text-white border-primary': variant === 'primary',
+      'bg-secondary text-dark border-secondary': variant === 'secondary',
+      'bg-white text-dark border-dark': variant === 'tertiary',
+    },
+  );
+  const classes = className ? className : defaultClassName;
   const [isLoading, setLoading] = useState(false);
+
   useEffect(() => {
     if (loading) {
       setLoading(loading);
     }
   }, [loading]);
-  const loadingStatus: ReactNode = isLoading ? <span> .... </span> : null;
+
   return (
     <button
-      className={classNames}
-      disabled={isLoading || disabled}
+      className={classes}
       onClick={onClickHandler}
+      disabled={isLoading || props.disabled}
+      type={props.type || 'submit'}
       {...props}
     >
       {children}
-      {loadingStatus}
+      {isLoading && <Spinner color="white" />}
     </button>
   );
 };
