@@ -9,7 +9,7 @@ const Spinner = ({ color }: ISpinner): React.ReactNode => {
   return (
     <LoaderCircle
       color={color}
-      className={`animate-spin h-4 w-4 text-white ${color}`}
+      className={`animate-spin h-4 w-4 ${color}`}
       role="alert"
       aria-label="loading"
       data-testid="spinner"
