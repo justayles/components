@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+// make react testing library available to all tests
 import React from 'react';
 import { LoaderCircle } from 'lucide-react';
 
