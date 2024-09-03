@@ -19,6 +19,7 @@ const Button = ({
   children,
   ...props
 }: ButtonProps) => {
+  const [isLoading, setLoading] = useState(false);
   const defaultClassName = cslx(
     'border hover:brightness-90 p-2 px-4 sm:px-6 rounded w-auto flex items-center justify-between gap-2 my-6 disabled:opacity-75',
     {
@@ -28,7 +29,6 @@ const Button = ({
     },
   );
   const classes = className ? className : defaultClassName;
-  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     if (loading) {
