@@ -28,6 +28,10 @@ npx mrm@2 lint-staged
     ]
   },
 
+  be aware that reinstaiing node modules will change this file below.., you need to revert it again
+
+  husky/pre-comnit file should have 'npx lint-staged' in it
+
   Tailwind
   --------
 
