@@ -1,6 +1,6 @@
 {
   "name": "@justayles/components",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A library of react components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -90,5 +90,8 @@
       "pretty-quick --staged",
       "eslint src/components/**/*.* --fix"
     ]
+  },
+  "dependencies": {
+    "lucide-react": "^0.438.0"
   }
 }
