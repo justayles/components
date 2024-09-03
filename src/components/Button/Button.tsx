@@ -7,7 +7,7 @@ export interface ButtonProps
   variant?: 'primary' | 'secondary' | 'tertiary';
   loading?: boolean;
   className?: string;
-  onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickHandler?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
 }
 
@@ -40,7 +40,7 @@ const Button = ({
   return (
     <button
       className={classes}
-      onClick={onClickHandler}
+      onClick={onClickHandler || undefined}
       disabled={isLoading || props.disabled}
       type={props.type || 'submit'}
       {...props}
