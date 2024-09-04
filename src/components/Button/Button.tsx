@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cslx from 'clsx';
-// import { Spinner } from '../Spinner';
+import Spinner from '../Spinner';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,7 +12,7 @@ export interface ButtonProps
 }
 
 const Button = ({
-  variant,
+  variant = 'primary',
   loading,
   className,
   onClickHandler,
@@ -46,8 +46,7 @@ const Button = ({
       {...props}
     >
       {children}
-      {/* {isLoading && <Spinner color="white" />} */}
-      {isLoading && '...'}
+      {isLoading && <Spinner color="white" />}
     </button>
   );
 };
