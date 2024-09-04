@@ -1,4 +1,3 @@
-
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
@@ -9,6 +8,7 @@ import packageJson from './package.json' assert { type: 'json' };
 export default [
   {
     input: 'src/index.ts',
+    external: ['react-dom'],
     output: [
       {
         file: packageJson.main,
@@ -24,7 +24,10 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json', exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'] }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'],
+      }),
       postcss({ extensions: ['.css'], inject: true, extract: false }),
     ],
   },
