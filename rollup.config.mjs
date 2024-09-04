@@ -29,7 +29,7 @@ export default [
         tsconfig: './tsconfig.json',
         exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'],
       }),
-      postcss({ extensions: ['.css'], inject: true, extract: false }),
+      postcss({ extensions: ['.css'] }),
     ],
   },
   {
@@ -40,7 +40,8 @@ export default [
   },
   {
     input: 'src/styles/main.css',
-    output: [{ file: 'dist/main.css', format: 'esm' }],
+    output: [{ file: 'dist/index.css', format: 'esm' }],
+    plugins: [postcss({ extensions: ['.css'], extract: true, inject: false })],
   },
   {
     input: './tailwind.custom.js',
