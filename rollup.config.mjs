@@ -38,4 +38,12 @@ export default [
     plugins: [dts()],
     external: [/\.css$/],
   },
+  {
+    input: 'src/styles/main.css',
+    output: [{ file: 'dist/main.css', format: 'esm' }],
+  },
+  {
+    input: './tailwind.custom.js',
+    output: [{ file: 'dist/tailwind.custom.js', format: 'esm' }],
+  },
 ];
