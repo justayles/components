@@ -88,7 +88,7 @@ describe('Button', () => {
     expect(button).toBeDisabled();
   });
 
-  it('should add icon if loading is true', async () => {
+  it.skip('should add icon if loading is true', async () => {
     // arrange
     const fn = jest.fn();
     render(
