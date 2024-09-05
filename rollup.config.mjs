@@ -41,7 +41,10 @@ export default [
   {
     input: 'src/styles/main.css',
     output: [{ file: 'dist/index.css', format: 'esm' }],
-    plugins: [postcss({ extensions: ['.css'], extract: true, inject: false })],
+    plugins: [
+      peerDepsExternal(),
+      postcss({ extensions: ['.css'], extract: true, inject: false }),
+    ],
   },
   {
     input: './tailwind.custom.js',
